@@ -1,0 +1,18 @@
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\AI labs.exe
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\AI labs.deps.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\AI labs.runtimeconfig.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\AI labs.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\AI labs.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.csproj.AssemblyReference.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI_labs.Form1.resources
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.csproj.GenerateResource.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.AssemblyInfoInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.AssemblyInfo.cs
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.csproj.CoreCompileInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\refint\AI labs.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI labs.genruntimeconfig.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\ref\AI labs.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI_labs.Properties.Resources.resources

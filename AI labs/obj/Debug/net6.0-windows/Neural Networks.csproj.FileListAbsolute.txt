@@ -1,0 +1,19 @@
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\Neural Networks.exe
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\Neural Networks.deps.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\Neural Networks.runtimeconfig.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\Neural Networks.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\bin\Debug\net6.0-windows\Neural Networks.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.csproj.AssemblyReference.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\AI_labs.Form1.resources
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural_Networks.Properties.Resources.resources
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.csproj.GenerateResource.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.AssemblyInfoInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.AssemblyInfo.cs
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.csproj.CoreCompileInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\refint\Neural Networks.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural Networks.genruntimeconfig.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\ref\Neural Networks.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\AI labs\obj\Debug\net6.0-windows\Neural_Networks.IMAGE.resources

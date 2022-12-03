@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Максим Ковалевский\\Documents\\GitHub\\AI labs\\AI labs\\AI labs.csproj",
-      "projectName": "AI labs",
-      "projectPath": "C:\\Users\\Максим Ковалевский\\Documents\\GitHub\\AI labs\\AI labs\\AI labs.csproj",
+      "projectUniqueName": "C:\\Users\\Максим Ковалевский\\Documents\\GitHub\\AI labs\\AI labs\\Neural Networks.csproj",
+      "projectName": "Neural Networks",
+      "projectPath": "C:\\Users\\Максим Ковалевский\\Documents\\GitHub\\AI labs\\AI labs\\Neural Networks.csproj",
       "packagesPath": "C:\\Users\\Максим Ковалевский\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Максим Ковалевский\\Documents\\GitHub\\AI labs\\AI labs\\obj\\",
       "projectStyle": "PackageReference",
