@@ -81,11 +81,17 @@
             this.x32 = new System.Windows.Forms.CheckBox();
             this.x22 = new System.Windows.Forms.CheckBox();
             this.result = new System.Windows.Forms.GroupBox();
+            this.iteration = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.добавитьОбразыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеОбразыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.iteration = new System.Windows.Forms.TextBox();
+            this.hopfield = new System.Windows.Forms.RadioButton();
+            this.som = new System.Windows.Forms.RadioButton();
+            this.lRate = new System.Windows.Forms.Label();
+            this.tlRate = new System.Windows.Forms.TextBox();
+            this.iter = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.input.SuspendLayout();
             this.result.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -95,7 +101,6 @@
             // 
             this.w00.AutoSize = true;
             this.w00.BackColor = System.Drawing.SystemColors.Control;
-            this.w00.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w00.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w00.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w00.Location = new System.Drawing.Point(42, 46);
@@ -103,13 +108,11 @@
             this.w00.Size = new System.Drawing.Size(18, 17);
             this.w00.TabIndex = 0;
             this.w00.UseVisualStyleBackColor = false;
-            this.w00.UseWaitCursor = true;
             // 
             // w10
             // 
             this.w10.AutoSize = true;
             this.w10.BackColor = System.Drawing.SystemColors.Control;
-            this.w10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w10.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w10.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w10.Location = new System.Drawing.Point(42, 69);
@@ -117,13 +120,11 @@
             this.w10.Size = new System.Drawing.Size(18, 17);
             this.w10.TabIndex = 1;
             this.w10.UseVisualStyleBackColor = false;
-            this.w10.UseWaitCursor = true;
             // 
             // w20
             // 
             this.w20.AutoSize = true;
             this.w20.BackColor = System.Drawing.SystemColors.Control;
-            this.w20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w20.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w20.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w20.Location = new System.Drawing.Point(42, 92);
@@ -131,13 +132,11 @@
             this.w20.Size = new System.Drawing.Size(18, 17);
             this.w20.TabIndex = 2;
             this.w20.UseVisualStyleBackColor = false;
-            this.w20.UseWaitCursor = true;
             // 
             // w30
             // 
             this.w30.AutoSize = true;
             this.w30.BackColor = System.Drawing.SystemColors.Control;
-            this.w30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w30.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w30.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w30.Location = new System.Drawing.Point(42, 115);
@@ -145,13 +144,11 @@
             this.w30.Size = new System.Drawing.Size(18, 17);
             this.w30.TabIndex = 3;
             this.w30.UseVisualStyleBackColor = false;
-            this.w30.UseWaitCursor = true;
             // 
             // w40
             // 
             this.w40.AutoSize = true;
             this.w40.BackColor = System.Drawing.SystemColors.Control;
-            this.w40.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w40.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w40.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w40.Location = new System.Drawing.Point(42, 138);
@@ -159,13 +156,11 @@
             this.w40.Size = new System.Drawing.Size(18, 17);
             this.w40.TabIndex = 4;
             this.w40.UseVisualStyleBackColor = false;
-            this.w40.UseWaitCursor = true;
             // 
             // w01
             // 
             this.w01.AutoSize = true;
             this.w01.BackColor = System.Drawing.SystemColors.Control;
-            this.w01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w01.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w01.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w01.Location = new System.Drawing.Point(66, 46);
@@ -173,13 +168,11 @@
             this.w01.Size = new System.Drawing.Size(18, 17);
             this.w01.TabIndex = 5;
             this.w01.UseVisualStyleBackColor = false;
-            this.w01.UseWaitCursor = true;
             // 
             // w11
             // 
             this.w11.AutoSize = true;
             this.w11.BackColor = System.Drawing.SystemColors.Control;
-            this.w11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w11.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w11.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w11.Location = new System.Drawing.Point(66, 69);
@@ -187,13 +180,11 @@
             this.w11.Size = new System.Drawing.Size(18, 17);
             this.w11.TabIndex = 6;
             this.w11.UseVisualStyleBackColor = false;
-            this.w11.UseWaitCursor = true;
             // 
             // w21
             // 
             this.w21.AutoSize = true;
             this.w21.BackColor = System.Drawing.SystemColors.Control;
-            this.w21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w21.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w21.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w21.Location = new System.Drawing.Point(66, 92);
@@ -201,13 +192,11 @@
             this.w21.Size = new System.Drawing.Size(18, 17);
             this.w21.TabIndex = 7;
             this.w21.UseVisualStyleBackColor = false;
-            this.w21.UseWaitCursor = true;
             // 
             // w31
             // 
             this.w31.AutoSize = true;
             this.w31.BackColor = System.Drawing.SystemColors.Control;
-            this.w31.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w31.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w31.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w31.Location = new System.Drawing.Point(66, 115);
@@ -215,13 +204,11 @@
             this.w31.Size = new System.Drawing.Size(18, 17);
             this.w31.TabIndex = 8;
             this.w31.UseVisualStyleBackColor = false;
-            this.w31.UseWaitCursor = true;
             // 
             // w41
             // 
             this.w41.AutoSize = true;
             this.w41.BackColor = System.Drawing.SystemColors.Control;
-            this.w41.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w41.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w41.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w41.Location = new System.Drawing.Point(66, 138);
@@ -229,13 +216,11 @@
             this.w41.Size = new System.Drawing.Size(18, 17);
             this.w41.TabIndex = 9;
             this.w41.UseVisualStyleBackColor = false;
-            this.w41.UseWaitCursor = true;
             // 
             // w02
             // 
             this.w02.AutoSize = true;
             this.w02.BackColor = System.Drawing.SystemColors.Control;
-            this.w02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w02.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w02.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w02.Location = new System.Drawing.Point(90, 46);
@@ -243,13 +228,11 @@
             this.w02.Size = new System.Drawing.Size(18, 17);
             this.w02.TabIndex = 10;
             this.w02.UseVisualStyleBackColor = false;
-            this.w02.UseWaitCursor = true;
             // 
             // w12
             // 
             this.w12.AutoSize = true;
             this.w12.BackColor = System.Drawing.SystemColors.Control;
-            this.w12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w12.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w12.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w12.Location = new System.Drawing.Point(90, 69);
@@ -257,13 +240,11 @@
             this.w12.Size = new System.Drawing.Size(18, 17);
             this.w12.TabIndex = 11;
             this.w12.UseVisualStyleBackColor = false;
-            this.w12.UseWaitCursor = true;
             // 
             // w22
             // 
             this.w22.AutoSize = true;
             this.w22.BackColor = System.Drawing.SystemColors.Control;
-            this.w22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w22.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w22.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w22.Location = new System.Drawing.Point(90, 92);
@@ -271,13 +252,11 @@
             this.w22.Size = new System.Drawing.Size(18, 17);
             this.w22.TabIndex = 12;
             this.w22.UseVisualStyleBackColor = false;
-            this.w22.UseWaitCursor = true;
             // 
             // w32
             // 
             this.w32.AutoSize = true;
             this.w32.BackColor = System.Drawing.SystemColors.Control;
-            this.w32.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w32.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w32.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w32.Location = new System.Drawing.Point(90, 115);
@@ -285,13 +264,11 @@
             this.w32.Size = new System.Drawing.Size(18, 17);
             this.w32.TabIndex = 13;
             this.w32.UseVisualStyleBackColor = false;
-            this.w32.UseWaitCursor = true;
             // 
             // w42
             // 
             this.w42.AutoSize = true;
             this.w42.BackColor = System.Drawing.SystemColors.Control;
-            this.w42.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w42.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w42.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w42.Location = new System.Drawing.Point(90, 138);
@@ -299,13 +276,11 @@
             this.w42.Size = new System.Drawing.Size(18, 17);
             this.w42.TabIndex = 14;
             this.w42.UseVisualStyleBackColor = false;
-            this.w42.UseWaitCursor = true;
             // 
             // w03
             // 
             this.w03.AutoSize = true;
             this.w03.BackColor = System.Drawing.SystemColors.Control;
-            this.w03.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w03.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w03.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w03.Location = new System.Drawing.Point(114, 46);
@@ -313,13 +288,11 @@
             this.w03.Size = new System.Drawing.Size(18, 17);
             this.w03.TabIndex = 15;
             this.w03.UseVisualStyleBackColor = false;
-            this.w03.UseWaitCursor = true;
             // 
             // w13
             // 
             this.w13.AutoSize = true;
             this.w13.BackColor = System.Drawing.SystemColors.Control;
-            this.w13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w13.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w13.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w13.Location = new System.Drawing.Point(114, 69);
@@ -327,13 +300,11 @@
             this.w13.Size = new System.Drawing.Size(18, 17);
             this.w13.TabIndex = 16;
             this.w13.UseVisualStyleBackColor = false;
-            this.w13.UseWaitCursor = true;
             // 
             // w23
             // 
             this.w23.AutoSize = true;
             this.w23.BackColor = System.Drawing.SystemColors.Control;
-            this.w23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w23.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w23.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w23.Location = new System.Drawing.Point(114, 92);
@@ -341,13 +312,11 @@
             this.w23.Size = new System.Drawing.Size(18, 17);
             this.w23.TabIndex = 17;
             this.w23.UseVisualStyleBackColor = false;
-            this.w23.UseWaitCursor = true;
             // 
             // w33
             // 
             this.w33.AutoSize = true;
             this.w33.BackColor = System.Drawing.SystemColors.Control;
-            this.w33.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w33.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w33.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w33.Location = new System.Drawing.Point(114, 115);
@@ -355,13 +324,11 @@
             this.w33.Size = new System.Drawing.Size(18, 17);
             this.w33.TabIndex = 18;
             this.w33.UseVisualStyleBackColor = false;
-            this.w33.UseWaitCursor = true;
             // 
             // w43
             // 
             this.w43.AutoSize = true;
             this.w43.BackColor = System.Drawing.SystemColors.Control;
-            this.w43.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w43.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w43.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w43.Location = new System.Drawing.Point(114, 138);
@@ -369,13 +336,11 @@
             this.w43.Size = new System.Drawing.Size(18, 17);
             this.w43.TabIndex = 19;
             this.w43.UseVisualStyleBackColor = false;
-            this.w43.UseWaitCursor = true;
             // 
             // w04
             // 
             this.w04.AutoSize = true;
             this.w04.BackColor = System.Drawing.SystemColors.Control;
-            this.w04.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w04.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w04.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w04.Location = new System.Drawing.Point(138, 46);
@@ -383,13 +348,11 @@
             this.w04.Size = new System.Drawing.Size(18, 17);
             this.w04.TabIndex = 20;
             this.w04.UseVisualStyleBackColor = false;
-            this.w04.UseWaitCursor = true;
             // 
             // w14
             // 
             this.w14.AutoSize = true;
             this.w14.BackColor = System.Drawing.SystemColors.Control;
-            this.w14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w14.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w14.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w14.Location = new System.Drawing.Point(138, 69);
@@ -397,13 +360,11 @@
             this.w14.Size = new System.Drawing.Size(18, 17);
             this.w14.TabIndex = 21;
             this.w14.UseVisualStyleBackColor = false;
-            this.w14.UseWaitCursor = true;
             // 
             // w24
             // 
             this.w24.AutoSize = true;
             this.w24.BackColor = System.Drawing.SystemColors.Control;
-            this.w24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w24.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w24.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w24.Location = new System.Drawing.Point(138, 92);
@@ -411,13 +372,11 @@
             this.w24.Size = new System.Drawing.Size(18, 17);
             this.w24.TabIndex = 22;
             this.w24.UseVisualStyleBackColor = false;
-            this.w24.UseWaitCursor = true;
             // 
             // w34
             // 
             this.w34.AutoSize = true;
             this.w34.BackColor = System.Drawing.SystemColors.Control;
-            this.w34.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w34.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w34.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w34.Location = new System.Drawing.Point(138, 115);
@@ -425,13 +384,11 @@
             this.w34.Size = new System.Drawing.Size(18, 17);
             this.w34.TabIndex = 23;
             this.w34.UseVisualStyleBackColor = false;
-            this.w34.UseWaitCursor = true;
             // 
             // w44
             // 
             this.w44.AutoSize = true;
             this.w44.BackColor = System.Drawing.SystemColors.Control;
-            this.w44.Cursor = System.Windows.Forms.Cursors.Hand;
             this.w44.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.w44.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.w44.Location = new System.Drawing.Point(138, 138);
@@ -439,7 +396,6 @@
             this.w44.Size = new System.Drawing.Size(18, 17);
             this.w44.TabIndex = 24;
             this.w44.UseVisualStyleBackColor = false;
-            this.w44.UseWaitCursor = true;
             // 
             // button1
             // 
@@ -479,7 +435,7 @@
             this.input.Controls.Add(this.w12);
             this.input.Controls.Add(this.w32);
             this.input.Controls.Add(this.w22);
-            this.input.Location = new System.Drawing.Point(50, 28);
+            this.input.Location = new System.Drawing.Point(316, 31);
             this.input.Name = "input";
             this.input.Size = new System.Drawing.Size(203, 243);
             this.input.TabIndex = 26;
@@ -865,12 +821,30 @@
             this.result.Controls.Add(this.x21);
             this.result.Controls.Add(this.x11);
             this.result.Controls.Add(this.x33);
-            this.result.Location = new System.Drawing.Point(361, 28);
+            this.result.Location = new System.Drawing.Point(525, 31);
             this.result.Name = "result";
             this.result.Size = new System.Drawing.Size(203, 243);
             this.result.TabIndex = 52;
             this.result.TabStop = false;
             this.result.Text = "Распознанный символ";
+            // 
+            // iteration
+            // 
+            this.iteration.Location = new System.Drawing.Point(117, 175);
+            this.iteration.Name = "iteration";
+            this.iteration.ReadOnly = true;
+            this.iteration.Size = new System.Drawing.Size(42, 27);
+            this.iteration.TabIndex = 53;
+            this.iteration.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Итерация:";
             // 
             // menuStrip1
             // 
@@ -880,7 +854,7 @@
             this.удалитьВсеОбразыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(645, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(785, 28);
             this.menuStrip1.TabIndex = 53;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -898,29 +872,76 @@
             this.удалитьВсеОбразыToolStripMenuItem.Text = "Удалить все образы";
             this.удалитьВсеОбразыToolStripMenuItem.Click += new System.EventHandler(this.удалитьВсеОбразыToolStripMenuItem_Click);
             // 
-            // label1
+            // hopfield
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Итерация:";
+            this.hopfield.AutoSize = true;
+            this.hopfield.Checked = true;
+            this.hopfield.Location = new System.Drawing.Point(30, 61);
+            this.hopfield.Name = "hopfield";
+            this.hopfield.Size = new System.Drawing.Size(135, 24);
+            this.hopfield.TabIndex = 54;
+            this.hopfield.TabStop = true;
+            this.hopfield.Text = "Сеть Хопфилда";
+            this.hopfield.UseVisualStyleBackColor = true;
+            this.hopfield.CheckedChanged += new System.EventHandler(this.hopfield_CheckedChanged);
             // 
-            // iteration
+            // som
             // 
-            this.iteration.Location = new System.Drawing.Point(117, 175);
-            this.iteration.Name = "iteration";
-            this.iteration.ReadOnly = true;
-            this.iteration.Size = new System.Drawing.Size(42, 27);
-            this.iteration.TabIndex = 53;
-            this.iteration.Text = "0";
+            this.som.AutoSize = true;
+            this.som.Location = new System.Drawing.Point(30, 91);
+            this.som.Name = "som";
+            this.som.Size = new System.Drawing.Size(142, 24);
+            this.som.TabIndex = 55;
+            this.som.Text = "Карта Кохонена";
+            this.som.UseVisualStyleBackColor = true;
+            this.som.CheckedChanged += new System.EventHandler(this.som_CheckedChanged);
+            // 
+            // lRate
+            // 
+            this.lRate.AutoSize = true;
+            this.lRate.Location = new System.Drawing.Point(30, 153);
+            this.lRate.Name = "lRate";
+            this.lRate.Size = new System.Drawing.Size(178, 20);
+            this.lRate.TabIndex = 56;
+            this.lRate.Text = "Коэффициент обучения:";
+            // 
+            // tlRate
+            // 
+            this.tlRate.Location = new System.Drawing.Point(240, 146);
+            this.tlRate.Name = "tlRate";
+            this.tlRate.Size = new System.Drawing.Size(41, 27);
+            this.tlRate.TabIndex = 57;
+            this.tlRate.Text = "0,5";
+            // 
+            // iter
+            // 
+            this.iter.Location = new System.Drawing.Point(240, 113);
+            this.iter.Name = "iter";
+            this.iter.Size = new System.Drawing.Size(41, 27);
+            this.iter.TabIndex = 59;
+            this.iter.Text = "300";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(30, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(204, 20);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "Макс. количество итераций:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 313);
+            this.ClientSize = new System.Drawing.Size(785, 313);
+            this.Controls.Add(this.iter);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tlRate);
+            this.Controls.Add(this.lRate);
+            this.Controls.Add(this.som);
+            this.Controls.Add(this.hopfield);
             this.Controls.Add(this.result);
             this.Controls.Add(this.input);
             this.Controls.Add(this.menuStrip1);
@@ -998,5 +1019,11 @@
         private ToolStripMenuItem удалитьВсеОбразыToolStripMenuItem;
         private TextBox iteration;
         private Label label1;
+        private RadioButton hopfield;
+        private RadioButton som;
+        private Label lRate;
+        private TextBox tlRate;
+        private TextBox iter;
+        private Label label2;
     }
 }

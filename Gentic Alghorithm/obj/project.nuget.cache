@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uYNodKS6oyppHNVdHt+blhXhlINhw5z699WfZUmF+71ni3RaR8sin9usNgBzvMqtZvI/1Iyr+q/ZTIP2tKuggQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Максим Ковалевский\\Documents\\GitHub\\AI labs\\Gentic Alghorithm\\Genetic Alghorithm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Максим Ковалевский\\.nuget\\packages\\mathparser.org-mxparser\\5.1.0\\mathparser.org-mxparser.5.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -16,44 +16,6 @@ namespace Neural_Networks
         static private float[,] weights = new float[N, N]; //matrix of weights
         //static public float[] threshhold = new float[N]; //threshhold
         static public float[] result = new float[N]; //result image
-        static public void initialize(List<CheckBox> input) //retrieving data from inputed image
-        {
-            int k = 0;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    CheckBox temp = input.Find(x => x.Name == "w" + i + j);
-                    if (temp.Checked == true)
-                        w[k] = 1;
-                    else
-                        w[k] = -1;
-                    k++;
-                }
-            }
-        }
-        static public void initImages(List<List<CB>> images) //retrieving data from inputed train images
-        {
-            int k = 0, m;
-            s = new float[images.Count, N];
-            foreach (List<CB> image in images)
-            {
-                m = 0;
-                for (int i = 0; i < n; i++)
-                {
-                    for (int j = 0; j < n; j++)
-                    {
-                        CB temp = image.Find(x => x.CBName == "s" + i + j);
-                        if (temp.CBCheckStatus == "Checked")
-                            s[k, m] = 1;
-                        else
-                            s[k, m] = -1;
-                        m++;
-                    }
-                }
-                k++;
-            }
-        }
         static private void initMatrixOfWeights() //initialization of matrix of weight and threshholds
         {
             for (int i = 0; i < N; i++)
@@ -95,12 +57,15 @@ namespace Neural_Networks
             //    threshhold[i] /= 2;
             //}
         }
-        static public void restoreImage(List<CheckBox> output, TextBox iteration) //restore image alghorithm
+        static public void restoreImage(List<CheckBox> output, TextBox iteration, TextBox maxIter) //restore image alghorithm
         {
+            s = Form1.initImages();
             initMatrixOfWeights();
+            w = Form1.initialize();
             var input = w;
             bool fail = false; //if nothing is happening for a while
             int count = 0;
+            int max = Int32.Parse(maxIter.Text);
             while (!fail)
             {
                 for (int i = 0; i < N; i++)
@@ -119,7 +84,9 @@ namespace Neural_Networks
                     else if (result[i] <= /*threshhold[i]*/0)
                         result[i] = -1;
                 }
-                for (int k = 0; k < s.Rank; k++) //see if result matches with train images
+                count++;
+                iteration.Text = count.ToString(); //show what iteration is this
+                for (int k = 0; k < s.GetLength(0); k++) //see if result matches with train images
                 {
                     bool match = true;
                     for (int i = 0; i < N; i++)
@@ -132,7 +99,10 @@ namespace Neural_Networks
                     }
                     if (match)
                     {
-                        showImage(output, k);
+                        float[] res = new float[N];
+                        for (int i = 0; i < N; i++) 
+                            res[i] = s[k, i];
+                        Form1.showImage(res);
                         return;
                     }
                 }
@@ -163,10 +133,8 @@ namespace Neural_Networks
                 else
                     for (int i = 0; i < N; i++) //updating input image
                         input[i] = result[i];
-                count++;
-                if (count > 300)
+                if (count > max)
                     fail = true;
-                iteration.Text = count.ToString(); //show what iteration is this
             }
             for (int i = 0; i < N; i++)
                 result[i] = 0;
@@ -189,7 +157,9 @@ namespace Neural_Networks
                 else
                     result[cur] = -1;
                 w[cur] = result[cur];
-                for (int k = 0; k < s.Rank; k++)
+                count++;
+                iteration.Text = count.ToString();
+                for (int k = 0; k < s.GetLength(0); k++)
                 {
                     bool match = true;
                     for (int i = 0; i < N; i++)
@@ -202,7 +172,10 @@ namespace Neural_Networks
                     }
                     if (match)
                     {
-                        showImage(output, k);
+                        float[] res = new float[N];
+                        for (int i = 0; i < N; i++)
+                            res[i] = s[k, i];
+                        Form1.showImage(res);
                         return;
                     }
                 }
@@ -232,24 +205,6 @@ namespace Neural_Networks
                 }
                 if (nowChoose == 0)
                     ind++;
-                count++;
-                iteration.Text = count.ToString();
-            }
-        }
-        static public void showImage(List<CheckBox> input, int num) //show restored image
-        {
-            int k = 0;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    CheckBox temp = input.Find(x => x.Name == "x" + i + j);
-                    if (s[num, k] == 1)
-                        temp.CheckState = CheckState.Checked;
-                    else
-                        temp.CheckState = CheckState.Unchecked;
-                    k++;
-                }
             }
         }
     }

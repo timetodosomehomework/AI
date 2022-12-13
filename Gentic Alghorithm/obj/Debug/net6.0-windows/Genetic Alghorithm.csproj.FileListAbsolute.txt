@@ -1,0 +1,19 @@
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\bin\Debug\net6.0-windows\Genetic Alghorithm.exe
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\bin\Debug\net6.0-windows\Genetic Alghorithm.deps.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\bin\Debug\net6.0-windows\Genetic Alghorithm.runtimeconfig.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\bin\Debug\net6.0-windows\Genetic Alghorithm.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\bin\Debug\net6.0-windows\Genetic Alghorithm.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\bin\Debug\net6.0-windows\MathParser.org-mXparser.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.csproj.AssemblyReference.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Gentic_Alghorithm.Form1.resources
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.csproj.GenerateResource.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.AssemblyInfoInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.AssemblyInfo.cs
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.csproj.CoreCompileInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.csproj.CopyComplete
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\refint\Genetic Alghorithm.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\Genetic Alghorithm.genruntimeconfig.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\Gentic Alghorithm\obj\Debug\net6.0-windows\ref\Genetic Alghorithm.dll
