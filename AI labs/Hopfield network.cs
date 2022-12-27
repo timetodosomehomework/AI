@@ -66,6 +66,28 @@ namespace Neural_Networks
             bool fail = false; //if nothing is happening for a while
             int count = 0;
             int max = Int32.Parse(maxIter.Text);
+            for (int k = 0; k < s.GetLength(0); k++) //see if result matches with train images
+            {
+                bool match = true;
+                for (int i = 0; i < N; i++)
+                {
+                    if (input[i] != s[k, i])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match)
+                {
+                    float[] res = new float[N];
+                    for (int i = 0; i < N; i++)
+                        res[i] = s[k, i];
+                    Form1.showImage(res);
+                    count++;
+                    iteration.Text = count.ToString();
+                    return;
+                }
+            }
             while (!fail)
             {
                 for (int i = 0; i < N; i++)

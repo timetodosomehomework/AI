@@ -9,7 +9,8 @@ namespace Gentic_Alghorithm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            beeSet.Enabled = false;
+            beeSet.Hide();
         }
 
         private void selection_SelectedIndexChanged(object sender, EventArgs e) //to disable stuff that not needed for this selction and enable that needed
@@ -76,8 +77,6 @@ namespace Gentic_Alghorithm
         private void button1_Click(object sender, EventArgs e) //id-ing parameters and calling function with alghorithm
         {
             string expression = this.expression.Text;
-            double leftBorder = Double.Parse(this.leftBorder.Text);
-            double rightBorder = Double.Parse(this.rightBorder.Text);
             int n = Int32.Parse(this.n.Text);
             int populationCapacity = Int32.Parse(this.populationCapacity.Text);
             double T = Double.Parse(this.gap.Text);
@@ -138,8 +137,13 @@ namespace Gentic_Alghorithm
             }
             else
                 bitsOrNo = true;
-
-            GA ga = new GA(expression, bitsOrNo, P0, populationCapacity, /*l,*/ t, T, P, lambda, alpha, selection, CO, Pm, eps, leftBorder, rightBorder, precision);
+            double[] leftBorder = new double[intervals.Rows.Count];
+            for (int i = 0; i < intervals.Rows.Count; i++)
+                leftBorder[i] = Double.Parse(intervals[1, i].Value.ToString());
+            double[] rightBorder = new double[intervals.Rows.Count];
+            for (int i = 0; i < intervals.Rows.Count; i++)
+                rightBorder[i] = Double.Parse(intervals[2, i].Value.ToString());
+            GA ga = new GA(expression, bitsOrNo, P0, populationCapacity, /*l,*/ t, T, P, lambda, alpha, selection, CO, Pm, eps, leftBorder, rightBorder, func, precision);
             ga.Alghorithm(n, this.y, listView1);
         }
 
@@ -153,6 +157,7 @@ namespace Gentic_Alghorithm
             lambda.Enabled = false;
             alpha.Enabled = false;
             precision.Enabled = false;
+            eps.Enabled = true;
         }
 
         private void bits_CheckedChanged(object sender, EventArgs e)
@@ -165,6 +170,78 @@ namespace Gentic_Alghorithm
             lambda.Enabled = false;
             alpha.Enabled = false;
             precision.Enabled = true;
+            eps.Enabled = false;
+        }
+
+        private void findArgs_Click(object sender, EventArgs e)
+        {
+            string expression = this.expression.Text;
+            int max = 0;
+            for (int i = 0; i < expression.Length; i++) //find out how many arguments in function
+                if (expression[i] == 'x')
+                    if (Int32.Parse(expression[i + 1].ToString()) > max)
+                        max = Int32.Parse(expression[i + 1].ToString());
+            intervals.RowCount = max;
+            for (int i = 0; i < max; i++)
+                intervals[0, i].Value = "x" + (i + 1).ToString();
+        }
+
+        private void ga_CheckedChanged(object sender, EventArgs e)
+        {
+            beeSet.Enabled = false;
+            beeSet.Hide();
+            algSettings.Enabled = true;
+            algSettings.Show();
+        }
+
+        private void ba_CheckedChanged(object sender, EventArgs e)
+        {
+            algSettings.Enabled = false;
+            algSettings.Hide();
+            beeSet.Enabled = true;
+            beeSet.Show();
+        }
+
+        private void beeb_Click(object sender, EventArgs e)
+        {
+            int maxIter = Int32.Parse(this.maxIter.Text);
+            string expression = bexp.Text;
+            int scouts = Int32.Parse(this.scouts.Text);
+            int elite = Int32.Parse(this.elite.Text);
+            int promising = Int32.Parse(this.promising.Text);
+            int eliteBees = Int32.Parse(belite.Text);
+            int promisingBees = Int32.Parse(bpromising.Text);
+            double[] leftBorder = new double[bintervals.Rows.Count];
+            for (int i = 0; i < bintervals.Rows.Count; i++)
+                leftBorder[i] = Double.Parse(bintervals[1, i].Value.ToString());
+            double[] rightBorder = new double[bintervals.Rows.Count];
+            for (int i = 0; i < bintervals.Rows.Count; i++)
+                rightBorder[i] = Double.Parse(bintervals[2, i].Value.ToString());
+            double[] eliteR = new double[rs.Rows.Count];
+            for (int i = 0; i < rs.Rows.Count; i++)
+                eliteR[i] = Double.Parse(rs[1, i].Value.ToString());
+            double[] promisingR = new double[rs.Rows.Count];
+            for (int i = 0; i < rs.Rows.Count; i++)
+                promisingR[i] = Double.Parse(rs[2, i].Value.ToString());
+            Bee_Alghorithm alghorithm = new Bee_Alghorithm(maxIter, expression, leftBorder, rightBorder, scouts, elite, promising, eliteBees, promisingBees, eliteR, promisingR, func);
+            alghorithm.Alghorithm(y, listView1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string expression = bexp.Text;
+            int max = 0;
+            for (int i = 0; i < expression.Length; i++) //find out how many arguments in function
+                if (expression[i] == 'x')
+                    if (Int32.Parse(expression[i + 1].ToString()) > max)
+                        max = Int32.Parse(expression[i + 1].ToString());
+            bintervals.RowCount = max;
+            rs.RowCount = max;
+            for (int i = 0; i < max; i++)
+            {
+                bintervals[0, i].Value = "x" + (i + 1).ToString();
+                rs[0, i].Value = "x" + (i + 1).ToString();
+            }
         }
     }
 }

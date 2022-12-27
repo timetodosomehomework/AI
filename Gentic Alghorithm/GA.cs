@@ -13,7 +13,7 @@ namespace Gentic_Alghorithm
         private int numberOfArguments; //number of arguments in the function
         private int populationCapacity; //how many chromosomes in population
         private string expression; //function
-        private int bit; //how many bits is needed to code values with given precision
+        private int[] bit; //how many bits is needed to code values with given precision
         //private double l; //cutoff threshhold for truncation selection
         private int t; //size of the tournament for tournament selection
         private double T; //population gap
@@ -24,17 +24,19 @@ namespace Gentic_Alghorithm
         private char CO; //what type of crossbreeding was chosen
         private double Pm; //probability of mutation
         private double eps; //mutation value (-eps;eps)
-        private double leftBorder; //left border of the interval
-        private double rightBorder; //right border of the interval
+        private double[] leftBorder; //left border of the interval
+        private double[] rightBorder; //right border of the interval
         private bool bitsOrNo; //what representation
         private double P0; //probability for uniform crossingover
-        public GA(string expression, bool bitsOrNo, double P0, int populationCapacity, /*double l,*/ int t, double T, double P, double lambda, double alpha, char selection, char CO, double Pm, double eps, double leftBorder, double rightBorder, double precision = 0) 
+        private TextBox func;
+        private int iter = 0;
+        public GA(string expression, bool bitsOrNo, double P0, int populationCapacity, /*double l,*/ int t, double T, double P, double lambda, double alpha, char selection, char CO, double Pm, double eps, double[] leftBorder, double[] rightBorder, TextBox func, double precision = 0) 
         {
             int max = 0;
             for (int i = 0; i < expression.Length; i++) //find out how many arguments in function
                 if (expression[i] == 'x')
                     if (Int32.Parse(expression[i + 1].ToString()) > max)
-                        max++;
+                        max = Int32.Parse(expression[i + 1].ToString());
             numberOfArguments = max;
             this.bitsOrNo = bitsOrNo;
             this.populationCapacity = populationCapacity;
@@ -52,25 +54,30 @@ namespace Gentic_Alghorithm
             //this.l = l;
             this.t = t;
             this.P0 = P0;
+            this.func = func;
+            bit = new int[numberOfArguments];
             if (precision != 0)
             {
-                double temp;
-                if (rightBorder + leftBorder >= rightBorder)
-                    temp = (rightBorder - leftBorder) / precision - 2;
-                else
-                    temp = (rightBorder - leftBorder) / precision - 1;
-                bit = (int)Math.Log2(temp);
+                for (int i = 0; i < numberOfArguments; i++)
+                {
+                    double temp;
+                    if (rightBorder[i] + leftBorder[i] >= rightBorder[i])
+                        temp = (rightBorder[i] - leftBorder[i]) / precision - 2;
+                    else
+                        temp = (rightBorder[i] - leftBorder[i]) / precision - 1;
+                    bit[i] = (int)Math.Log2(temp);
+                }
             }
         }
-        private double toDouble(BitArray x) //decode bit gen to corresponding real value
+        private double toDouble(BitArray x, int i) //decode bit gen to corresponding real value
         {
             int[] dec = new int[1];
             x.CopyTo(dec, 0);
-            return dec[0] * (rightBorder - leftBorder) / (Math.Pow(2, bit) - 1) + leftBorder;
+            return dec[0] * (rightBorder[i] - leftBorder[i]) / (Math.Pow(2, bit[i]) - 1) + leftBorder[i];
         }
-        private BitArray toBit(double x) //code real value to corresponding bit value
+        private BitArray toBit(double x, int i) //code real value to corresponding bit value
         {
-            int dec = (int)((x - leftBorder) * (Math.Pow(2, bit) - 1) / (rightBorder - leftBorder));
+            int dec = (int)((x - leftBorder[i]) * (Math.Pow(2, bit[i]) - 1) / (rightBorder[i] - leftBorder[i]));
             return new BitArray(new int[] { dec });
         }
         private double calculate(double[] x) //calculate value of the function
@@ -81,6 +88,8 @@ namespace Gentic_Alghorithm
                 arguments[i] = new Argument("x" + (i + 1), x[i]);
             Expression e = new Expression(expression, arguments);
             result = e.calculate();
+            iter++;
+            func.Text = iter.ToString();
             return result;
         }
         private void evaluate(Population population) //calculate value of the function for every chromosome
@@ -90,7 +99,7 @@ namespace Gentic_Alghorithm
                 {
                     for (int j = 0; j < numberOfArguments; j++)
                     {
-                        population.entities[i].gens[j] = toDouble(population.entities[i].bgens[j]);
+                        population.entities[i].gens[j] = toDouble(population.entities[i].bgens[j], j);
                     }
                     population.entities[i].adaptability = calculate(population.entities[i].gens);
                 }
@@ -143,22 +152,24 @@ namespace Gentic_Alghorithm
                 {
                     int j = (int)(random.NextDouble() * populationCapacity);
                     if (i == 0)
-                        min = population.entities[j];
+                        min = new Entity(population.entities[j]);
                     else if (min.adaptability > population.entities[j].adaptability)
-                        min = population.entities[j];
+                        min = new Entity(population.entities[j]);
                 }
-                entities[k] = min;
+                entities[k] = new Entity(min);
             }
             return entities;
         }
         private Entity[] onePointCrossingOver(Entity[] parents) //one-point crossingover
         {
             Random random = new Random();
-            Entity[] offsprings = parents;
+            Entity[] offsprings = new Entity[parents.Length];
+            for (int k = 0; k < offsprings.Length; k++) 
+                offsprings[k] = new Entity(parents[k]);
             int i = random.Next(numberOfArguments);
-            int j = random.Next(bit);
+            int j = random.Next(bit[i]);
             for (; i < numberOfArguments; i++) 
-                for (; j < bit; j++)
+                for (; j < bit[i]; j++)
                 {
                     offsprings[0].bgens[i][j] = parents[1].bgens[i][j];
                     offsprings[1].bgens[i][j] = parents[0].bgens[i][j];
@@ -168,17 +179,23 @@ namespace Gentic_Alghorithm
         private Entity[] twoPointCrossingOverBit(Entity[] parents) //two-point crossingover for bit representation
         {
             Random random = new Random();
-            Entity[] offsprings = parents;
+            Entity[] offsprings = new Entity[parents.Length];
+            for (int ind = 0; ind < offsprings.Length; ind++)
+                offsprings[ind] = new Entity(parents[ind]);
             int i = random.Next(numberOfArguments);
-            int j = random.Next(bit);
+            int j = random.Next(bit[i]);
             int k = random.Next(numberOfArguments);
-            int m = random.Next(bit);
+            int m = random.Next(bit[k]);
             while (i == k && j == m)
             {
                 k = random.Next(numberOfArguments);
-                m = random.Next(bit);
+                m = random.Next(bit[k]);
             }
-            int n = bit;
+            int max = i < k ? k : i;
+            int min = i > k ? k : i;
+            i = min;
+            k = max;
+            int n = bit[i];
             for (; i < k + 1; i++)
             {
                 if (i == k)
@@ -194,9 +211,11 @@ namespace Gentic_Alghorithm
         private Entity[] uniformCrossingOver(Entity[] parents) //uniform crossingover
         {
             Random random = new Random();
-            Entity[] offsprings = parents;
+            Entity[] offsprings = new Entity[parents.Length];
+            for (int k = 0; k < offsprings.Length; k++)
+                offsprings[k] = new Entity(parents[k]);
             for (int i = 0; i < numberOfArguments; i++)
-                for (int j = 0; j < bit; j++)
+                for (int j = 0; j < bit[i]; j++)
                 {
                     if (P0 > random.NextDouble())
                     {
@@ -209,7 +228,9 @@ namespace Gentic_Alghorithm
         private Entity[] twoPointCrossingOver(Entity[] parents) //two-point crossingover for real representation
         {
             Random random = new Random();
-            Entity[] offsprings = parents;
+            Entity[] offsprings = new Entity[parents.Length];
+            for (int k = 0; k < offsprings.Length; k++)
+                offsprings[k] = new Entity(parents[k]);
             int i = random.Next(numberOfArguments);
             int j = i;
             while (j == i) 
@@ -223,7 +244,9 @@ namespace Gentic_Alghorithm
         }
         private Entity[] ariphmeticCrossingOver(Entity[] parents) //ariphmetic crossingover
         {
-            Entity[] offsprings = parents;
+            Entity[] offsprings = new Entity[parents.Length];
+            for (int k = 0; k < offsprings.Length; k++)
+                offsprings[k] = new Entity(parents[k]);
             for (int i = 0; i < parents[0].gens.Length; i++)
             {
                 offsprings[0].gens[i] = lambda * parents[0].gens[i] + (1 - lambda) * parents[1].gens[i];
@@ -234,7 +257,9 @@ namespace Gentic_Alghorithm
         private Entity[] BLXcrossingOver(Entity[] parents) //BLX-a crossingover
         {
             Random random = new Random();
-            Entity[] offsprings = parents;
+            Entity[] offsprings = new Entity[parents.Length];
+            for (int k = 0; k < offsprings.Length; k++)
+                offsprings[k] = new Entity(parents[k]);
             for (int i = 0; i < parents[0].gens.Length; i++)
             {
                 double min = parents[0].gens[i] < parents[1].gens[i] ? parents[0].gens[i] : parents[1].gens[i];
@@ -243,10 +268,10 @@ namespace Gentic_Alghorithm
                 double leftBorder = min - alpha * delta;
                 double rightBorder = max + alpha * delta;
                 offsprings[0].gens[i] = random.NextDouble() * (rightBorder - leftBorder) + leftBorder;
-                while (offsprings[0].gens[i] <= this.leftBorder || offsprings[0].gens[i] >= this.rightBorder)
+                while (offsprings[0].gens[i] <= this.leftBorder[i] || offsprings[0].gens[i] >= this.rightBorder[i])
                     offsprings[0].gens[i] = random.NextDouble() * (rightBorder - leftBorder) + leftBorder;
                 offsprings[1].gens[i] = random.NextDouble() * (rightBorder - leftBorder) + leftBorder;
-                while (offsprings[1].gens[i] <= this.leftBorder || offsprings[1].gens[i] >= this.rightBorder)
+                while (offsprings[1].gens[i] <= this.leftBorder[i] || offsprings[1].gens[i] >= this.rightBorder[i])
                     offsprings[1].gens[i] = random.NextDouble() * (rightBorder - leftBorder) + leftBorder;
             }
             return offsprings;
@@ -257,7 +282,7 @@ namespace Gentic_Alghorithm
             Entity[] offsprings = new Entity[populationCapacity];
             int n = (int)(populationCapacity * T); //how many offsprings in the next generation
             evaluate(population);
-            Entity[] parents;
+            Entity[] parents = new Entity[populationCapacity];
             switch (selection)
             {
                 //case 'r':
@@ -267,10 +292,14 @@ namespace Gentic_Alghorithm
                 //    parents = truncationSelection(population, l);
                 //    break;
                 case 'T':
-                    parents = tournamentSelection(population, t);
+                    var tempo = tournamentSelection(population, t);
+                    for (int i = 0; i < populationCapacity; i++)
+                        parents[i] = new Entity(tempo[i]);
                     break;
                 default:
-                    parents = tournamentSelection(population, t);
+                    tempo = tournamentSelection(population, t);
+                    for (int i = 0; i < populationCapacity; i++)
+                        parents[i] = new Entity(tempo[i]);
                     break;
             }
             for (int k = 0; k < n; k += 2) 
@@ -280,75 +309,103 @@ namespace Gentic_Alghorithm
                 while (j == i)
                     j = random.Next(parents.Length);
                 Entity[] tparents = new Entity[2];
-                tparents[0] = parents[i];
-                tparents[1] = parents[j];
-                Entity[] toffsprings;
+                tparents[0] = new Entity(parents[i]);
+                tparents[1] = new Entity(parents[j]);
+                Entity[] toffsprings = new Entity[2];
                 if (P > random.NextDouble())
                     switch (CO)
                     {
                         case 'a':
-                            toffsprings = ariphmeticCrossingOver(tparents);
+                            var tem = ariphmeticCrossingOver(tparents);
+                            for (i = 0; i < tparents.Length; i++)
+                                toffsprings[i] = new Entity(tem[i]);
                             break;
                         case '2':
-                            toffsprings = twoPointCrossingOver(tparents);
+                            tem = twoPointCrossingOver(tparents);
+                            for (i = 0; i < tparents.Length; i++)
+                                toffsprings[i] = new Entity(tem[i]);
                             break;
                         case 'b':
-                            toffsprings = BLXcrossingOver(tparents);
+                            tem = BLXcrossingOver(tparents);
+                            for (i = 0; i < tparents.Length; i++)
+                                toffsprings[i] = new Entity(tem[i]);
                             break;
                         case '1':
-                            toffsprings = onePointCrossingOver(tparents);
+                            tem = onePointCrossingOver(tparents);
+                            for (i = 0; i < tparents.Length; i++)
+                                toffsprings[i] = new Entity(tem[i]);
                             break;
                         case 't':
-                            toffsprings = twoPointCrossingOverBit(tparents);
+                            tem = twoPointCrossingOverBit(tparents);
+                            for (i = 0; i < tparents.Length; i++)
+                                toffsprings[i] = new Entity(tem[i]);
                             break;
                         case 'u':
-                            toffsprings = uniformCrossingOver(tparents);
+                            tem = uniformCrossingOver(tparents);
+                            for (i = 0; i < tparents.Length; i++)
+                                toffsprings[i] = new Entity(tem[i]);
                             break;
                         default:
                             if (bitsOrNo)
-                                toffsprings = twoPointCrossingOverBit(tparents);
+                            {
+                                tem = twoPointCrossingOverBit(tparents);
+                                for (i = 0; i < tparents.Length; i++)
+                                    toffsprings[i] = new Entity(tem[i]);
+                            }
                             else
-                                toffsprings = twoPointCrossingOver(tparents);
+                            {
+                                tem = twoPointCrossingOver(tparents);
+                                for (i = 0; i < tparents.Length; i++)
+                                    toffsprings[i] = new Entity(tem[i]);
+                            }
                             break;
                     }
                 else
-                    toffsprings = tparents;
+                {
+                    for (i = 0; i < tparents.Length; i++)
+                        toffsprings[i] = new Entity(tparents[i]);
+                }
                 if (k + 1 != n)
                 {
-                    offsprings[k] = toffsprings[0];
-                    offsprings[k + 1] = toffsprings[1];
+                    offsprings[k] = new Entity(toffsprings[0]);
+                    offsprings[k + 1] = new Entity(toffsprings[1]);
                 }
                 else if (random.NextDouble() > 0.49)
-                    offsprings[k] = toffsprings[0];
+                    offsprings[k] = new Entity(toffsprings[0]);
                 else
-                    offsprings[k] = toffsprings[1];
+                    offsprings[k] = new Entity(toffsprings[1]);
             }
             List<Entity> lparents = parents.ToList();
             lparents.Sort((x1, x2) => x1.adaptability.CompareTo(x2.adaptability));
-            parents = lparents.ToArray();
+            var temp = lparents.ToArray();
+            for (int i = 0; i < parents.Length; i++)
+                parents[i] = new Entity(temp[i]);
             for (int i = n, j = 0; i < populationCapacity; i++, j++) //most fit parents added to the next population
-                offsprings[i] = parents[j];
+                offsprings[i] = new Entity(parents[j]);
             return offsprings;
         }
         private Entity[] mutation(Population population) //mutation
         {
             Random random = new Random();
-            Entity[] entities = crossBreeding(population);
+            Entity[] entities = new Entity[populationCapacity];
+            Entity[] temp = crossBreeding(population);
+            for (int i = 0; i < entities.Length; i++)
+                entities[i] = new Entity(temp[i]);
             for (int i = 0; i < populationCapacity; i++)
                 for (int j = 0; j < numberOfArguments; j++)
                 {
                     if (bitsOrNo)
-                        for (int k = 0; k < bit; k++)
+                        for (int k = 0; k < bit[j]; k++)
                         {
                             if (Pm > random.NextDouble())
                                 entities[i].bgens[j][k] = !entities[i].bgens[j][k];
                         }
                     else if (Pm > random.NextDouble())
                     {
-                        double temp = entities[i].gens[j] + random.NextDouble() * 2 * eps - eps;
-                        while (entities[i].gens[j] + temp <= leftBorder || entities[i].gens[j] + temp >= rightBorder)
-                            temp = random.NextDouble() * 2 * eps - eps;
-                        entities[i].gens[j] += temp;
+                        double tem = entities[i].gens[j] + random.NextDouble() * 2 * eps - eps;
+                        while (entities[i].gens[j] + tem <= leftBorder[j] || entities[i].gens[j] + tem >= rightBorder[j])
+                            tem = random.NextDouble() * 2 * eps - eps;
+                        entities[i].gens[j] += tem;
                     }
                 }
             return entities;
@@ -361,14 +418,19 @@ namespace Gentic_Alghorithm
             else
                 population = new Population(populationCapacity, numberOfArguments, leftBorder, rightBorder);
             for (int i = 0; i < n; i++) //do ga until n generation
-                population.entities = mutation(population);
+            {  
+                var tem = mutation(population);
+                for (int j = 0; j < population.entities.Length; j++)
+                    population.entities[j] = new Entity(tem[j]);
+            }
+            evaluate(population);
             double min_func = population.entities.Min(x => x.adaptability);
             Entity temp;
             if (bitsOrNo)
                 temp = new Entity(numberOfArguments, bit, leftBorder, rightBorder);
             else
                 temp = new Entity(numberOfArguments, leftBorder, rightBorder);
-            temp = population.entities.ToList().Find(x => x.adaptability == min_func);
+            temp = new Entity(population.entities.ToList().Find(x => x.adaptability == min_func));
             double[] xs;
             xs = temp.gens;
             y.Text = min_func.ToString();

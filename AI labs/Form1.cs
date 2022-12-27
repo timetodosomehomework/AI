@@ -17,6 +17,8 @@ namespace AI_labs
             óäàëèòüÂñåÎáğàçûToolStripMenuItem.Enabled = false; //disable button until there is images to train on
             lRate.Hide();
             tlRate.Hide();
+            Pmin.Hide();
+            lPot.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace AI_labs
             if (hopfield.Checked)
                 Hopfield_network.restoreImage(x, iteration, iter); //restore image
             else
-                SOM.recognize(N, Double.Parse(tlRate.Text), iteration, iter);
+                SOM.recognize(N, Double.Parse(tlRate.Text), iteration, iter, Double.Parse(Pmin.Text));
         }
 
         private void äîáàâèòüÎáğàçûToolStripMenuItem_Click(object sender, EventArgs e) //add train images
@@ -111,12 +113,16 @@ namespace AI_labs
         {
             lRate.Hide();
             tlRate.Hide();
+            Pmin.Hide();
+            lPot.Hide();
         }
 
         private void som_CheckedChanged(object sender, EventArgs e)
         {
             lRate.Show();
             tlRate.Show();
+            Pmin.Show();
+            lPot.Show();
         }
     }
 }

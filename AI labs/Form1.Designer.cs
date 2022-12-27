@@ -92,6 +92,8 @@
             this.tlRate = new System.Windows.Forms.TextBox();
             this.iter = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.Pmin = new System.Windows.Forms.TextBox();
+            this.lPot = new System.Windows.Forms.Label();
             this.input.SuspendLayout();
             this.result.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -890,9 +892,9 @@
             this.som.AutoSize = true;
             this.som.Location = new System.Drawing.Point(30, 91);
             this.som.Name = "som";
-            this.som.Size = new System.Drawing.Size(142, 24);
+            this.som.Size = new System.Drawing.Size(133, 24);
             this.som.TabIndex = 55;
-            this.som.Text = "Карта Кохонена";
+            this.som.Text = "Сеть Кохонена";
             this.som.UseVisualStyleBackColor = true;
             this.som.CheckedChanged += new System.EventHandler(this.som_CheckedChanged);
             // 
@@ -931,11 +933,30 @@
             this.label2.Text = "Макс. количество итераций:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Pmin
+            // 
+            this.Pmin.Location = new System.Drawing.Point(240, 179);
+            this.Pmin.Name = "Pmin";
+            this.Pmin.Size = new System.Drawing.Size(41, 27);
+            this.Pmin.TabIndex = 61;
+            this.Pmin.Text = "0,75";
+            // 
+            // lPot
+            // 
+            this.lPot.AutoSize = true;
+            this.lPot.Location = new System.Drawing.Point(30, 186);
+            this.lPot.Name = "lPot";
+            this.lPot.Size = new System.Drawing.Size(195, 20);
+            this.lPot.TabIndex = 60;
+            this.lPot.Text = "Минимальный потенциал:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 313);
+            this.Controls.Add(this.Pmin);
+            this.Controls.Add(this.lPot);
             this.Controls.Add(this.iter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tlRate);
@@ -1025,5 +1046,7 @@
         private TextBox tlRate;
         private TextBox iter;
         private Label label2;
+        private TextBox Pmin;
+        private Label lPot;
     }
 }

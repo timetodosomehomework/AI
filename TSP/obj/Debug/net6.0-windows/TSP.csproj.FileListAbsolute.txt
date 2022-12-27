@@ -1,0 +1,17 @@
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\bin\Debug\net6.0-windows\TSP.exe
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\bin\Debug\net6.0-windows\TSP.deps.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\bin\Debug\net6.0-windows\TSP.runtimeconfig.json
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\bin\Debug\net6.0-windows\TSP.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\bin\Debug\net6.0-windows\TSP.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.csproj.AssemblyReference.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.Form1.resources
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.csproj.GenerateResource.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.AssemblyInfoInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.AssemblyInfo.cs
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.csproj.CoreCompileInputs.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\refint\TSP.dll
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.pdb
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\TSP.genruntimeconfig.cache
+C:\Users\Максим Ковалевский\Documents\GitHub\AI labs\TSP\obj\Debug\net6.0-windows\ref\TSP.dll

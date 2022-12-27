@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neural Networks", "AI labs\Neural Networks.csproj", "{A4B80A8C-5FE1-44DF-A027-22E8325E2E04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genetic Alghorithm", "Gentic Alghorithm\Genetic Alghorithm.csproj", "{B8BFC82C-3225-4321-A12B-3C34CEAF1B2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Genetic Alghorithm", "Gentic Alghorithm\Genetic Alghorithm.csproj", "{B8BFC82C-3225-4321-A12B-3C34CEAF1B2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSP", "TSP\TSP.csproj", "{BF80B24A-2FFD-4902-8A5E-82BA404A2E21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B8BFC82C-3225-4321-A12B-3C34CEAF1B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8BFC82C-3225-4321-A12B-3C34CEAF1B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BFC82C-3225-4321-A12B-3C34CEAF1B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF80B24A-2FFD-4902-8A5E-82BA404A2E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF80B24A-2FFD-4902-8A5E-82BA404A2E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF80B24A-2FFD-4902-8A5E-82BA404A2E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF80B24A-2FFD-4902-8A5E-82BA404A2E21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
